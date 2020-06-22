@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<h3>Checking!!!!</h3>
+
+
+<div style="width:50%; margin:30px">
+
+<div>
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-{{ message.tags}} ">
+        {{ message }}
+    </div>
+    {% endfor %} {% endif %}
+</div>
+
+    <table style="padding: 10px; margin:5px ;text-align:center">
+        <tr>
+            <th>Roll-Name</th>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        {% for i in obj %}
+        <tr>
+            <td>{{i.roll}}</td>
+            <td><a href="{% url 'subject' i.subject %}">{{i.subject}}</a></td>
+            <td>{{i.date_time}}</td>
+            <td>{{i.time}}</td>
+            <td><a href="{% url 'delete' i.id %}">Remove</a></td>
+            <td><a href="{% url 'update' i.id %}">Edit</a></td>
+        </tr>
+        {% endfor%}
+    </table>
+
+</div>
+
+<div style="margin:50px">
+    All Subejcts:<br> {% for i in list_subject_short %}
+
+    <a href="{% url 'subject' i %}">{{i}}</a><br> {% endfor%}
+
+</div>
+
+{% endblock %}

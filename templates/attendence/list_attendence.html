@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<h3>List of Attendence</h3>
+
+
+<div style="width:10%; position: absolute; left:5%; text-align:center">
+
+    {% for upload in uploads %}
+
+    <div style="border:1px solid black; margin:3px ">
+        {{upload.roll}}<br> {{upload.subject}}
+        <br> {{upload.date_time}}
+        <br> {{upload.time}}
+        <br>
+    </div>
+    {% endfor%}
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<h2>Subject Wise List of Attendence</h2>
+
+<div style="width:50%;">
+
+    <div style="margin-top:50px; margin-left:50px">
+        <h4>Class <b>{{subject_name}}</b> Attendences </h4>
+    </div>
+
+    <table  style="padding: 10px; margin-left:50px ;text-align:center">
+        <tr>
+            <th>Roll-Name</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        {% for i in obj %}
+        <tr>
+            <td>{{i.roll}}</td>
+            <td>{{i.date_time}}</td>
+            <td>{{i.time}}</td>
+        </tr>
+        {% endfor%}
+    </table>
+
+</div>
+
+{% endblock %}
